@@ -3,7 +3,7 @@ package JavaScript::V8::Handlebars;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use File::Slurp qw/slurp/;
 use File::Spec;
@@ -12,6 +12,8 @@ use File::ShareDir ();
 
 use JSON ();
 use JavaScript::V8;
+
+our $LOG = 0;
 
 my $module_dir = File::ShareDir::module_dir( __PACKAGE__ );
 my ( $LIBRARY_PATH ) = glob "$module_dir/handlebars*.js"; # list context avoids global state
@@ -215,6 +217,8 @@ sub add_template_file {
 		$name = (File::Spec->splitpath($file))[2]; #Filename
 		$name =~ s/\..*//; #Remove extension
 	}
+
+	warn "Storing template $name" if $LOG;
 	
 	$self->add_template( $name, scalar slurp $file );
 }
@@ -249,6 +253,8 @@ sub add_template_dir {
 
 sub execute_template {
 	my( $self, $name, $args ) = @_;
+
+	warn "Attempting to execute $name $args" if $LOG;
 
 	return $self->{templates}{$name}->( $args );
 }
