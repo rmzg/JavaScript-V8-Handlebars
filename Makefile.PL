@@ -26,6 +26,7 @@ WriteMakefile(
         'JavaScript::V8'    => 0,
         'File::Slurp'       => 0,
         'File::ShareDir'    => 0,
+        'JSON'              => 0,
     },
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'JavaScript-V8-Handlebars-*' },
