@@ -3,7 +3,7 @@ package JavaScript::V8::Handlebars;
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use File::Slurp qw/slurp/;
 use File::Spec;
