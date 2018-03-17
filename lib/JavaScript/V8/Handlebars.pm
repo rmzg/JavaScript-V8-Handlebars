@@ -3,7 +3,7 @@ package JavaScript::V8::Handlebars;
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
+our $VERSION = '0.10';
 
 use File::Slurp qw/slurp/;
 use File::Spec;
@@ -414,6 +414,10 @@ Returns a string of javascript consisting of all the templates in the cache read
 Whatever the original Handlebar function does.
 
 =item $hbjs->escapeString ($string)
+
+Whatever the original Handlebar function does.
+
+=item $hbjs->escape_expression ($string)
 
 Whatever the original Handlebar function does.
 
